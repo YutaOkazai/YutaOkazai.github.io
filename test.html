@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ディープリンクテストページ</title>
+</head>
+<body>
+    <h1>ディープリンクテストページ</h1>
+    <p>以下のリンクをクリックして、アプリが開くかどうかをテストしてください。</p>
+    <a href="myapp://path/to/content" id="deepLink">アプリで開く</a>
+
+    <script>
+        document.getElementById('deepLink').addEventListener('click', function(e) {
+            var startTime = new Date().getTime();
+            var targetApp = this.href;
+            
+            // ディープリンクを試みる
+            window.location = targetApp;
+
+            // アプリが開かない場合はストアにリダイレクト
+            setTimeout(function() {
+                if (new Date().getTime() - startTime < 1500) {
+                    window.location = 'https://example.com/store-page';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
