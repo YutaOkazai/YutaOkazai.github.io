@@ -7,23 +7,13 @@
 <body>
     <h1>ディープリンクテストページ</h1>
     <p>以下のリンクをクリックして、アプリが開くかどうかをテストしてください。</p>
-    <a href="mangaup://open/title?title_id=187&placement_id=web" id="deepLink">アプリで開く</a>
+    <a href="mangaup://open/title?title_id=187&placement_id=web" id="deepLink">素のディープリンク</a>
+    <br/>
+    <a href="https://manga-up.go.link?adj_t=199lyorq&campaign=ios&adgroup=187&deeplink=mangaup%3A%2F%2Fopen%2Ftitle%3Ftitle_id%3D187%26placement_id%3Dweb" id="deepLink">go.link</a>
+    <br/>
+    <a href="https://nl26.adj.st/?adj_t=199lyorq&campaign=ios&adgroup=187&deeplink=mangaup%3A%2F%2Fopen%2Ftitle%3Ftitle_id%3D187%26placement_id%3Dweb&adjust_reftag=cFKgs5ivLXOxq&adjust_t=199lyorq&adjust_iredirect=https%3A%2F%2Fapps.apple.com%2Fapp%2Fid1178874028%3Fmt%3D8&adjust_notrack=1" id="deepLink">nl26.adj.st</a>
+    <br/>
+    <a href="https://app.adjust.com/199lyorq?campaign=ios&adgroup=187&deeplink=mangaup%3A%2F%2Fopen%2Ftitle%3Ftitle_id%3D187%26placement_id%3Dweb" id="deepLink">app.adjust.com</a>
 
-    <script>
-        document.getElementById('deepLink').addEventListener('click', function(e) {
-            var startTime = new Date().getTime();
-            var targetApp = this.href;
-            
-            // ディープリンクを試みる
-            window.location = targetApp;
-
-            // アプリが開かない場合はストアにリダイレクト
-            setTimeout(function() {
-                if (new Date().getTime() - startTime < 1500) {
-                    window.location = 'https://example.com/store-page';
-                }
-            }, 1000);
-        });
-    </script>
 </body>
 </html>
